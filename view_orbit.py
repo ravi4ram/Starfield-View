@@ -1,4 +1,4 @@
-# Functions to read, filter sky catalogue data
+# Functions to calculate state vectors, ra, dec and plot
 # Author: Ravi Ram
 
 import numpy as np
@@ -47,9 +47,9 @@ def get_satellite(line1, line2):
 # get ra and dec from state vectors
 def get_ra_dec_from_sv(r, v):
     # norm
-    r_n = np.linalg.norm(r)
+    v_n = np.linalg.norm(v)
     # direction cosines
-    l = r[0]/r_n; m = r[1]/r_n; n = r[2]/r_n;   
+    l = v[0]/v_n; m = v[1]/v_n; n = v[2]/v_n; 
     # declination
     delta = np.arcsin(n)*180/np.pi                    
     # right ascension
